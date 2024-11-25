@@ -1,6 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent, appConfig)
+import {provideRouter} from '@angular/router'
+import {routes} from './app/routes'
+import { provideHttpClient } from '@angular/common/http';
+import { provideToastr } from 'ngx-toastr';
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes),provideHttpClient(),provideToastr()],
+})
   .catch((err) => console.error(err));

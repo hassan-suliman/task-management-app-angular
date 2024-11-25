@@ -1,0 +1,29 @@
+<div class="container my-4">
+    <h2>Task List</h2>
+    <button class="btn btn-primary mb-3" routerLink="/add-task">Add Task</button>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>
+            {{task.description}}
+            <!-- <span class="badge" [class.bg-success]="task.isCompleted" [class.bg-warning]="!task.isCompleted">
+              {{ task.isCompleted ? 'Completed' : 'Pending' }}
+            </span> -->
+          </td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" routerLink="/edit-task/{{ task.id }}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
